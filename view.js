@@ -7,7 +7,7 @@ function setLocation(ele, obj){
 }
 hmUI.widget={
     "TEXT":{
-	view(obj){
+	view: (obj)=>{
 	let para = document.createElement("p");
 	let text=document.createTextNode(obj.text)
 	para.appendChild(text)
@@ -19,7 +19,7 @@ hmUI.widget={
 	params: ["x", "y", "text"]
     },
     "IMG":{
-	view(obj){
+	view:(obj)=>{
 	let img = document.createElement('img');
 	img.src = obj.src;
 	img=setLocation(img, obj)
