@@ -1,3 +1,4 @@
+try{
 var hmUI={}
 function setLocation(ele, obj){
 	ele.style.position="absolute";
@@ -7,8 +8,8 @@ function setLocation(ele, obj){
 }
 hmUI.widget={
     "TEXT":{
-	view: (obj)=>{
-	let para = document.createElement("p");
+	view: (obj) => {
+	let para = document.createElement("p")
 	let text=document.createTextNode(obj.text)
 	para.appendChild(text)
         para=setLocation(para, obj)
@@ -19,11 +20,12 @@ hmUI.widget={
 	params: ["x", "y", "text"]
     },
     "IMG":{
-	view:(obj)=>{
+	view:(obj) => {
 	let img = document.createElement('img');
 	img.src = obj.src;
 	img=setLocation(img, obj)
-	}
+	document.body.appendChild(img)
+	},
 	params: ["x", "y", "src"]
     }
 }
@@ -36,3 +38,11 @@ hmUI.createWidget(hmUI.widget.TEXT, {
                             text: 'a',
 			    text_size: 30
 })
+hmUI.createWidget(hmUI.widget.IMG, {
+	                            x: 45,
+	                            y: 200,
+	                            src: 'logo.png',
+})
+} catch(e){
+	                document.write(e.toString())
+	                }
